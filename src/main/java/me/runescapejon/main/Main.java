@@ -62,7 +62,7 @@ public class Main {
 			File configFile = new File(getConfigDirectory(), "configuration.conf");
 			if (!configFile.exists()) {
 				configFile.createNewFile();
-				logger.info("Creating Config for BorderProtector");
+				logger.info("Creating Config for KeepInventory");
 			}
 			ConfigurationLoader<CommentedConfigurationNode> loader = HoconConfigurationLoader.builder()
 					.setFile(configFile).build();
