@@ -23,7 +23,7 @@ import ninja.leaping.configurate.loader.ConfigurationLoader;
 import ninja.leaping.configurate.objectmapping.GuiceObjectMapperFactory;
 
 @Plugin(id = "keepinventorysponge", name = "KeepInventorySponge", authors = {
-		"runescapejon" }, description = "Let players keep their Inventory if they have permission.", version = "1.1")
+		"runescapejon" }, description = "Let players keep their Inventory if they have permission.", version = "1.2")
 public class Main {
 	public static Main instance;
 	private Main plugin;
