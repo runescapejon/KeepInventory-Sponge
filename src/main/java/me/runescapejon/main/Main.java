@@ -9,6 +9,7 @@ import org.spongepowered.api.event.Order;
 import org.spongepowered.api.event.entity.DestructEntityEvent;
 import org.spongepowered.api.event.filter.cause.First;
 import org.spongepowered.api.event.game.GameReloadEvent;
+import org.spongepowered.api.event.game.state.GamePreInitializationEvent;
 import org.spongepowered.api.plugin.Plugin;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.serializer.TextSerializers;
@@ -23,7 +24,7 @@ import ninja.leaping.configurate.loader.ConfigurationLoader;
 import ninja.leaping.configurate.objectmapping.GuiceObjectMapperFactory;
 
 @Plugin(id = "keepinventorysponge", name = "KeepInventorySponge", authors = {
-		"runescapejon" }, description = "Let players keep their Inventory if they have permission.", version = "1.2")
+		"runescapejon" }, description = "Let players keep their Inventory if they have permission.", version = "1.3.1")
 public class Main {
 	public static Main instance;
 	private Main plugin;
@@ -53,7 +54,11 @@ public class Main {
 	public GuiceObjectMapperFactory getFactory() {
 		return factory;
 	}
-
+	@Listener
+	public void onPreInit(GamePreInitializationEvent event) {
+		plugin = this;
+		loadConfig();
+	}
 	public boolean loadConfig() {
 		if (!plugin.getConfigDirectory().exists()) {
 			plugin.getConfigDirectory().mkdirs();
